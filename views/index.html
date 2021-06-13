@@ -1,0 +1,179 @@
+<!doctype html>
+
+<html lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>OpneEdit</title>
+		<link rel="stylesheet" href="" type="text/css" />
+		<style>
+
+             body {
+                    background-color: #e7e3df;
+                    }
+		
+		textarea {
+			width: 96%;
+			min-height:400px;
+			border: 2px solid black;
+			}
+
+		
+		</style>
+	</head>
+	
+	
+	
+	<body>
+	
+	<h1 align=center>OpenEdit</h1>
+	
+	<div align=center>{{!txt}}</div>
+	
+	<div align=center class="ipfs">
+
+
+
+<style>
+		
+	.grid {
+	display : grid;
+       grid-gap: 10px;
+			grid-template-columns: 1fr;
+			grid-template-rows: 1fr 2fr;
+			grid-template-areas: 
+					                 "load" 
+					                 "result";
+                  
+      min-height: 500px;
+      max-height: 500px;
+      width:100%;
+      background-color: #e7e3df;
+	}
+	
+	.load {
+	background-color: white;
+	grid-area: load;
+	border-radius: 5px;
+	border: 2px solid black;
+	font-size: 1.3em;
+       width: 96%;
+	}
+	
+	.result {	
+	background-color: white;
+	grid-area: result;
+	border-radius: 5px;
+	border: 2px solid black;
+	overflow: scroll;
+	height: 300px;
+       width: 96%;
+	}		
+			
+	 .thumb {
+        height: 75px;
+	 border: 1px solid #000;
+	 margin: 10px 5px 0 0; 
+        }
+		 
+		  
+</style> 
+	
+		
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		
+	
+	
+	
+<div class="grid">
+	
+<div class="load">
+	
+<h4 style= "text-align:center;">Upload Files on IPFS</h4>
+	
+<form name='fff' align=center> 
+	
+<span><input type="file" id="files" name="files[]" multiple /></span>
+	
+</form>
+	
+</div>
+	
+<div class="result" id='hash'></div>
+	
+
+
+
+<script>
+  
+  function handleFileSelect(evt) {
+    
+    var files = evt.target.files; // FileList object
+    
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+
+     
+			var reader = new FileReader();
+			
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        
+        return function(e) {
+          
+          
+          
+          // On ajoute la photo dans ipfs
+          var data = new FormData();
+	
+					data.append('arg', theFile); 
+				
+					var xhr = new XMLHttpRequest();
+					
+					xhr.open('POST', 'https://ipfs.infura.io:5001/api/v0/add', true);
+					
+					xhr.onload = function () {
+				    
+				    var json = JSON.parse(this.responseText);
+				    
+				    var hash = json.Hash;
+				    
+				    var text = '<p style= "text-align:center;">' + theFile.name + '</p><p style= "text-align:center;">' + hash + '</p><p style= "text-align:center;"><a href= "https://ipfs.io/ipfs/'+ hash + '">Lien</a></p>' ;
+				    
+				    var span = document.createElement('span');
+          
+          	span.innerHTML = ['<div class = "cadre"><p style= "text-align:center;" ><img class="thumb" src="', e.target.result,
+                            '" title="', escape(theFile.name), '"/>', text, '</p></div>' ].join('');
+          
+          	document.getElementById('hash').insertBefore(span, null);
+	
+				    
+						};
+						
+					
+					
+					xhr.send(data);
+					
+					
+        };
+        
+      })(f);
+
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);
+    }
+  }
+ 
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+	
+</script>
+	
+</div>
+	
+
+
+</div>
+	
+	
+</body>
+	
+</html>

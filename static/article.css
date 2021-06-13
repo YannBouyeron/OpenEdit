@@ -1,0 +1,175 @@
+
+
+
+body {
+margin: 1%;
+padding: 1%;
+font-size: 12px;
+font-family: Times;
+line-height: 140%;
+overflow: scroll;
+background-color: white;
+}
+			
+b, strong {
+font-weight: bold;
+}
+			
+h1, h2, h3, h4, h5, h6 {
+				
+font-family: "Times";
+font-weight: normal;
+margin-top: 32px;
+margin-bottom: 12px;
+color:  #3c3b36;
+padding-bottom: 4px;
+}
+			
+h1 {
+font-size: 2em;
+text-transform: uppercase;
+
+font-weight: bold;
+text-align: center;
+}
+			
+h2 {
+font-size: 1.5em;
+text-decoration: underline;
+font-weight: bold;
+}
+			
+h3 {
+font-size: 1.2em;
+text-decoration: underline;
+font-weight: bold;
+}
+			
+h4, h5, h6 {
+	font-size: 1em;
+	font-weight: bold;
+}
+
+p {
+	margin-bottom: 12px;
+	text-align: justify;
+}
+p:last-child {
+	margin-bottom: 0;
+}
+ol {
+	list-style: outside decimal;
+}
+ul {
+	list-style: outside disc;
+}
+li > p {
+	margin-bottom: 12px;
+}
+li > ol, li > ul {
+	margin-top: 12px !important;
+	padding-left: 12px;
+}
+ol:last-child, ul:last-child {
+	margin-bottom: 12px;
+}
+pre {
+	white-space: pre-wrap;
+	margin-bottom: 24px;
+	overflow: hidden;
+	padding: 3px;
+	border-radius: 6px;
+	background-color: #5a5a5a;
+	border-color: #d9d9d9;
+}
+code {
+	font-family: "{{CODE_FONT}}", monospace;
+	font-size: 1em;
+	white-space: nowrap;
+	padding: 1px;
+	border-radius: 2px;
+	background-color: #5a5a5a;
+	color: #FAF0E6;
+	font-weight: bold;
+}
+
+
+
+pre code {
+	font-size: 10px;
+	white-space: pre-wrap;
+}
+blockquote {
+	border-left: 5px solid #5a5a5a;
+	font-size: 90%;
+	margin-left: 0;
+	margin-right: auto;
+	width: 95%;
+	padding: 0 10px;
+	background-color: rgba(51, 37, 15, 0.05);
+	font-family: Times;
+}
+.theme-dark blockquote {
+	border-color: #4d371a;
+}
+table {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 24px;
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-spacing: 0;
+}
+table th {
+	padding: 3px 10px;
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+}
+table td {
+	padding: 3px 10px;
+	border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+}
+img {
+	border: none;
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+}
+hr {
+	border: 0;
+	height: 1px;
+	background-color: #ddd;
+}
+.footnote {
+	font-size: 0.8em;
+	vertical-align: super;
+}
+.footnotes ol {
+	font-weight: bold;
+}
+.footnotes ol li p {
+	font-weight: normal;
+}
+#content-wrapper {
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	width: 100%;
+}
+
+/* Device-specific styles: */
+@media only screen and (min-device-width : 768px) {
+	#content {
+		width: auto;
+		padding: 40px;
+	}
+}
+@media only screen and (max-device-width : 767px) {
+	#content {
+		width: auto;
+		padding: 12px;
+	}
+}
+
+
