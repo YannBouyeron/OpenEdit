@@ -7,7 +7,7 @@ import os
 def addtxt(text, title="file.txt"):
     """ Ajoute du text sur ipfs """
 
-    url = "https://ipfs.infura.io:5001/api/v0/add"
+    url = "https://oversas.org/api/v0/add"
 
     files = {'file': (title, text)}
 
@@ -23,7 +23,7 @@ def addfile(path):
 
         return False
 
-    url = "https://ipfs.infura.io:5001/api/v0/add"
+    url = "https://oversas.org:5001/api/v0/add"
 
     params = (('pin', 'false'), ('recursive', 'true'))
 
@@ -36,7 +36,7 @@ def addfile(path):
 
 def getfile(hash):
 
-    url = "https://ipfs.infura.io:5001/api/v0/cat"
+    url = "https://oversas.org/api/v0/cat"
 
     payload = {"arg": hash}
 
