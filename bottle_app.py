@@ -75,7 +75,7 @@ def traitement():
 
         h = rep['Hash']
 
-        url = "https://ipfs.io/ipfs/{0}".format(h)
+        url = "https://oversas.org/ipfs/{0}".format(h)
 
         response.status = 303
         response.set_header('Location', url)
@@ -99,7 +99,7 @@ def traitement():
 
         os.remove('{0}.pdf'.format(titre))
 
-        url = "https://ipfs.io/ipfs/{0}".format(h)
+        url = "https://oversas.org/ipfs/{0}".format(h)
 
         response.status = 303
         response.set_header('Location', url)
