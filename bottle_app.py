@@ -132,6 +132,6 @@ def traitement():
         response.status = 303
         response.set_header('Location', './static/{0}.pdf'.format(titre))
 
+application = default_app()
 
-run(host='0.0.0.0', port=27200, reload=True, debug=True)
-# application = default_app()
+# run(host='0.0.0.0', port=27200, reload=True, debug=True)
