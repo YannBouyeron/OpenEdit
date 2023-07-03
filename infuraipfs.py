@@ -3,15 +3,19 @@ import urllib.request
 import requests
 import os
 
-
 def addtxt(text, title="file.txt"):
     """ Ajoute du text sur ipfs """
 
-    url = "https://oversas.org/api/v0/add"
+    params = {
+        'quiet': 'true',
+        'pin': 'true'
+    }
 
-    files = {'file': (title, text)}
+    files = {
+        'file': (title, text)
+    }
 
-    r = requests.post(url, files=files)
+    r = requests.post('https://ipfs.oversas.org/api/v0/add', params=params, files=files)
 
     return r.json()
 
@@ -23,20 +27,23 @@ def addfile(path):
 
         return False
 
-    url = "https://oversas.org:5001/api/v0/add"
+    params = {
+        'quiet': 'true',
+        'pin': 'true'
+    }
 
-    params = (('pin', 'false'), ('recursive', 'true'))
+    files = {
+        'file': open(path, 'rb'),
+    }
 
-    files = {'file': (path, open(path, 'rb'))}
-
-    r = requests.post(url, files=files, params=params)
+    r = requests.post('https://ipfs.oversas.org/api/v0/add', params=params, files=files)
 
     return r.json()
 
 
 def getfile(hash):
 
-    url = "https://oversas.org/api/v0/cat"
+    url = "https://ipfs.oversas.org/api/v0/cat"
 
     payload = {"arg": hash}
 
