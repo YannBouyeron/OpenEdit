@@ -2,4 +2,4 @@
 
 Editeur md html pdf et IPFS
 
-[OpenEdit](https://openedit.pythonanywhere.com)
+[OpenEdit](https://openedit.oversas.org)
