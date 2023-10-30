@@ -129,7 +129,7 @@
 				
 					var xhr = new XMLHttpRequest();
 					
-					xhr.open('POST', 'https://ipfs.infura.io:5001/api/v0/add', true);
+					xhr.open('POST', 'https://ipfs.oversas.org/api/v0/add', true);
 					
 					xhr.onload = function () {
 				    
@@ -137,7 +137,7 @@
 				    
 				    var hash = json.Hash;
 				    
-				    var text = '<p style= "text-align:center;">' + theFile.name + '</p><p style= "text-align:center;">' + hash + '</p><p style= "text-align:center;"><a href= "https://ipfs.io/ipfs/'+ hash + '">Lien</a></p>' ;
+				    var text = '<p style= "text-align:center;">' + theFile.name + '</p><p style= "text-align:center;">' + hash + '</p><p style= "text-align:center;"><a href= "https://oversas.org/ipfs/'+ hash + '">Lien</a></p>' ;
 				    
 				    var span = document.createElement('span');
           
